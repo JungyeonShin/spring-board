@@ -22,7 +22,9 @@ public class MainController {
     @RequestMapping(value = "test")
     public ResponseEntity getTest() {
 
-        int value = mainService.getTestValue();
+        HashMap value = mainService.getTestValue();
+        System.out.println("\n\n\n\nTEST :: " + value);
+
 
         List list = new ArrayList<HashMap>();
         Map map = new HashMap<String, Object>();
@@ -32,6 +34,6 @@ public class MainController {
 
         list.add(map);
 
-        return ResponseEntity.status(HttpStatus.OK).body(list);
+        return ResponseEntity.status(HttpStatus.OK).body(value);
     }
 }
